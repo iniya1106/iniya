@@ -1,0 +1,59 @@
+def strlen(s):
+    length = 0
+    for char in s:
+        length += 1
+    return length
+def strcpy(dest, src):
+    dest = ""
+    for char in src:
+        dest += char
+    return dest
+def strcat(dest, src):
+    concatenated_string = dest
+    for char in src:
+        concatenated_string += char
+    return concatenated_string
+def strstr(haystack, needle):
+    h_len = strlen(haystack)
+    n_len = strlen(needle)
+    for i in range(h_len - n_len + 1):
+        if haystack[i:i + n_len] == needle:
+            return haystack[i:]
+    return None
+
+def strrchr(s, char):
+    for i in range(strlen(s) - 1, -1, -1):
+        if s[i] == char:
+            return s[i:]
+    return None
+
+def main():
+   
+    string1 = input("Enter the first string: ")
+    string2 = input("Enter the second string: ")
+    length1 = strlen(string1)
+    length2 = strlen(string2)
+    print(f"Length of the first string ('{string1}'): {length1}")
+    print(f"Length of the second string ('{string2}'): {length2}")
+
+    copied_string = strcpy("", string1)
+    print(f"Copied string: {copied_string}")
+
+    concatenated_string = strcat(string1, string2)
+    print(f"Concatenated string: {concatenated_string}")
+
+    substring = strstr(string1, string2)
+    if substring:
+        print(f"Substring '{string2}' found in '{string1}': {substring}")
+    else:
+        print(f"Substring '{string2}' not found in '{string1}'")
+
+    last_occurrence = strrchr(string1, string2[0] if len(string2) > 0 else "")
+    if last_occurrence:
+        print(f"Last occurrence of character '{string2[0]}' in '{string1}': {last_occurrence}")
+    else:
+        print(f"Character '{string2[0]}' not found in '{string1}'")
+
+if __name__ == "__main__":
+    main()
+
