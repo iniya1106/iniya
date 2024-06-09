@@ -1,0 +1,15 @@
+def remove_repeated_characters(input_string):
+    seen_characters = set()
+    output_string = ""
+    for char in input_string:
+        if char not in seen_characters:
+            seen_characters.add(char)
+            output_string += char
+    return output_string
+def main():
+    input_string = input("Enter a string: ")
+    result_string = remove_repeated_characters(input_string)
+    print("String after removing repeated characters:", result_string)
+if __name__ == "__main__":
+    main()
+
