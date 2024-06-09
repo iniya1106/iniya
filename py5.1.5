@@ -1,0 +1,18 @@
+import math
+def calculate_mean(arr):
+    return sum(arr) / len(arr)
+def calculate_variance(arr, mean):
+    return sum((x - mean) ** 2 for x in arr) / len(arr)
+def calculate_deviation(variance):
+    return math.sqrt(variance)
+def main():
+    arr = list(map(float, input("Enter numbers separated by spaces: ").split()))
+    mean = calculate_mean(arr)
+    variance = calculate_variance(arr, mean)
+    deviation = calculate_deviation(variance)
+    print(f"Numbers: {arr}")
+    print(f"Mean: {mean}")
+    print(f"Variance: {variance}")
+    print(f"Deviation: {deviation}")
+if __name__ == "__main__":
+    main()
