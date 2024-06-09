@@ -1,0 +1,26 @@
+def display_array(arr):
+    print("Current array:", arr)
+def insert_number(arr, num, pos):
+    if pos < 0 or pos > len(arr):
+        print("Invalid position for insertion.")
+    else:
+        arr.insert(pos, num)
+        print(f"Number {num} inserted at position {pos}.")
+def delete_number(arr, pos):
+    if pos < 0 or pos >= len(arr):
+        print("Invalid position for deletion.")
+    else:
+        removed_num = arr.pop(pos)
+        print(f"Number {removed_num} deleted from position {pos}.")
+def main():
+    arr = list(map(int, input("Enter numbers separated by spaces: ").split()))
+    display_array(arr)
+    num_to_insert = int(input("Enter the number to insert: "))
+    insert_pos = int(input("Enter the position to insert the number at: "))
+    insert_number(arr, num_to_insert, insert_pos)
+    display_array(arr)
+    delete_pos = int(input("Enter the position to delete the number from: "))
+    delete_number(arr, delete_pos)
+    display_array(arr)
+if __name__ == "__main__":
+    main()
